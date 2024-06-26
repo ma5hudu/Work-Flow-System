@@ -33,13 +33,13 @@
         </form>
 
         <!-- Form for the excel document -->
-        <form class="fileForm" action="process.php">
+        <form class="fileForm" action="process.php" method="post" enctype="multipart/form-data">
             <label for="excel-document">Upload excel document:
                 <input id="excel-document" type="file" name="file" />
             </label>
             <br />
 
-            <input type="submit" value="Submit" />
+            <input type="submit" name="submitBtn" id="submitBtn" value="Submit" />
         </form>
     </div>
 </body>
