@@ -1,0 +1,56 @@
+.user-details {
+  background-color: #e7e9eb;
+  max-width: 600px;
+  /* margin: 60px auto; */
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="date"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 40%;
+  background-color: #0b86d9;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save input[type="submit"] {
+  width: 40%;
+  background-color: #0b86d9;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
