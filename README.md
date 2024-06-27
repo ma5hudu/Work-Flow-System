@@ -83,6 +83,7 @@ This project is a web-based workflow system developed in PHP to capture customer
    This will run your application.
 
 ## Usage Instructions
+Make sure your project is saved in the www folder inside your WampServer directory.
 
 1. In your browser, go to:
 
