@@ -1,0 +1,49 @@
+
+
+# Workflow System
+
+## Introduction
+This project is a web-based workflow system developed to capture customer information and visualize financial data in a graph using PHP, MySQL, and CanvasJS.
+
+## Project Description
+
+### User Input
+The user enters customer details (first name, last name, and date of birth) using an HTML form and then click save button 
+to store the values into database table.
+
+### Upload File
+An Excel file containing customer financial information is uploaded through the form after clicking the submit button.
+
+### Process
+After uploading the file, PhpSpreadsheet is used to process the data from the file into an SQL database where it will be stored
+ in a table called customer_finance which has values(month, income and expenses) matching the ones from excel file.
+
+### Display the Graph
+The graph is displayed using a CanvasJS template, which visualizes the customer information that was uploaded from the excel file.
+
+## Front-end
+- **HTML:** Used to structure the form for user input and file upload.
+- **CSS:** Used to style the form and adjust the size of the text.
+
+## Backend
+- **PHP:** Handles all the information submitted through the form utilizing the `$_REQUEST` and `$_POST` methods. Also used the PhpSpreadsheet library for processing the uploaded Excel file and storing the data in the database.
+- **SQL:** Used to store customer information (first name, last name, and date of birth) and financial data (Month, Income, and Expenses) in MySQL via phpMyAdmin.
+- **CanvasJS:** Used to display the graph with the provided template.
+
+How to run it
+Make sure your project is saved in the www folder inside your WampServer directory when you clone it.
+
+1. In your browser, go to:
+
+   ```
+   http://localhost/work-flow-system/index.php
+   ```
+
+   This will run your application.
+
+2. Fill in the form with your first name, last name, and date of birth, then click the save button.
+
+3. Upload the Excel file that contains the customer's income and expenses data, and then click the submit button.
+
+4. After submitting the file, click the next button that will redirect you to view the graph containing the customer's income and expenditure for the last 12 months.
+

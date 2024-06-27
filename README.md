@@ -102,3 +102,4 @@ Make sure your project is saved in the www folder inside your WampServer directo
 ##Assumptions
 Assumes the user has a working installation of PHP, WampServer, and MySQL.
 Assumes the Excel file is correctly formatted with income and expenses data.
+I assume the person running this program is using windows
