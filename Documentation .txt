@@ -7,6 +7,11 @@ This project is a web-based workflow system developed to capture customer inform
 
 ## Project Description
 
+##SQL(setup the database and tables)
+I create SQL query to check if the database and the tables required for the project exist and
+if it does not it will create a new database and tables
+Before executing the localhost/Work-Flow-Sy
+
 ### User Input
 The user enters customer details (first name, last name, and date of birth) using an HTML form and then click save button 
 to store the values into database table.
