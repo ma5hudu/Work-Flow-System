@@ -31,7 +31,7 @@ This project is a web-based workflow system developed in PHP to capture customer
 1. **Clone the Repository**
 
    ```sh
-   git clone git@github.com:ma5hudu/Work-Flow-System.git
+git clone https://github.com/ma5hudu/Work-Flow-System.git
    ```
 
    Save the project into the `www` folder inside your WampServer directory.
