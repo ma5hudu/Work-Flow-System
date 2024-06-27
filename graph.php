@@ -1,5 +1,6 @@
 <?php
  
+//two arrays to hold ponts for income and expenses
 $dataPointsIncome = array();
 $dataPointsExpenses = array();
 
@@ -8,8 +9,8 @@ try {
     // Creating a new connection.
     $link = new \PDO(
         'mysql:host=localhost;dbname=work_flow_system;charset=utf8mb4',
-        'root',
-        '',
+        'root', // database username
+        '', //databse password (empty strings for no password)
         array(
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_PERSISTENT => false
@@ -19,24 +20,33 @@ try {
     // Query to select data from the customer_finance table
     $handle = $link->prepare('SELECT month, income, expenses FROM customer_finance'); 
     $handle->execute(); 
-    $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+    $result = $handle->fetchAll(\PDO::FETCH_OBJ); // fetch all the results from table as objects
 
-    // Assuming you want to plot income and expenses over time (month)
+    /**Loop through each results in a row
+     * add income data point to the $dataPointsIncome array
+     * add expenses data point to the $dataPointsExpenses array
+     */
     foreach ($result as $row) {
         array_push($dataPointsIncome, array("label" => $row->month, "y" => floatval(preg_replace('/[^\d.]/', '', $row->income))));
         array_push($dataPointsExpenses, array("label" => $row->month, "y" => floatval(preg_replace('/[^\d.]/', '', $row->expenses))));
-    }
-    $link = null;
+    } 
+    $link = null; //close databse connection
 } catch (\PDOException $ex) {
-    print($ex->getMessage());
+    print($ex->getMessage()); //print exception message if an error occurs
 }
+
 ?>
+
+
 <!DOCTYPE HTML>
 <html>
 <head>  
 <script>
+
+    //javascript to render the chart when the windows loads.
 window.onload = function () {
  
+    // Create a new CanvasJS chart
 var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
     exportEnabled: true,
