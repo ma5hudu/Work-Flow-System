@@ -22,5 +22,7 @@ if(isset($_POST["saveBtn"])){
 //Insert values from the form into customer_details tables in the database.     
     if(mysqli_query($conn, "INSERT INTO customer_details(first_name, last_name, date_of_birth) VALUES('$first_name', '$last_name', $date_of_birth)")){
        echo "<script>alert('Customer information inserted successfully');</script>";
+    }else{
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
