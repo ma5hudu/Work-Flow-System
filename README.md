@@ -100,3 +100,5 @@ Make sure your project is saved in the www folder inside your WampServer directo
 4. After submitting the file, click the next button that will redirect you to view the graph containing the customer's income and expenditure for the last 12 months.
 
 ##Assumptions
+Assumes the user has a working installation of PHP, WampServer, and MySQL.
+Assumes the Excel file is correctly formatted with income and expenses data.
