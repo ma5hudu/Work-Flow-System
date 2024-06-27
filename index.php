@@ -41,6 +41,11 @@
 
             <input type="submit" name="submitBtn" id="submitBtn" value="Submit" />
         </form>
+
+       <form class="graph-button" action="graph.php">
+                <input type="submit" name="graphBtn" id="graphBtn" value="View graph">
+            </form> 
+       
     </div>
 </body>
 </html>

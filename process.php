@@ -63,7 +63,7 @@ if (isset($_POST['submitBtn'])) {
                 //execute the sql statement, if successful print a success message, 
                 //if not print an error messsgae with the sql statment  and the error  description.
                 if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Customer income and expenses uploaded successfully');</script>";
+                    echo "Customer income and expenses uploaded successfully";
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
