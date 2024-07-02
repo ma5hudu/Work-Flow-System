@@ -41,6 +41,7 @@ try {
 <!DOCTYPE HTML>
 <html>
 <head>  
+    <link href="css/styles.css" rel="stylesheet">
 <script>
 
     //javascript to render the chart when the windows loads.
@@ -81,4 +82,7 @@ chart.render();
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 </body>
+    <form class="view_form" action="index.php">
+        <input type="submit" value="View Form" id="form_button" name="form_button"style="height: 40px; width: 10%;">
+    </form>
 </html>
