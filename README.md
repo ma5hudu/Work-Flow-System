@@ -58,7 +58,7 @@ git clone https://github.com/ma5hudu/Work-Flow-System.git
    Log in with the username `root` and leave the password field empty.
 
 5. **Install PhpSpreadsheet**
-   Open the terminal in your project directory and run:
+   Open the terminal and go to the project directory and run:
 
    ```sh
    composer require phpoffice/phpspreadsheet
@@ -93,7 +93,7 @@ Make sure your project is saved in the www folder inside your WampServer directo
 
    This will run your application.
 
-2. Fill in the form with your first name, last name, and date of birth, then click the save button.
+2. Fill in the form with your first name, last name, and date of birth.
 
 3. Upload the Excel file that contains the customer's income and expenses data, and then click the submit button.
 

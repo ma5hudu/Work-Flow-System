@@ -11,7 +11,9 @@ CREATE TABLE IF NOT EXISTS customer_details (
 
 CREATE TABLE IF NOT EXISTS customer_finance (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
     month VARCHAR(50) NOT NULL,
     income VARCHAR(50) NOT NULL,
-    expenses VARCHAR(50) NOT NULL
+    expenses VARCHAR(50) NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer_details(id) ON DELETE CASCADE
 );

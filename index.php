@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Work-Flow System</title>
     <link rel="stylesheet" href="css/styles.css" />
-    
 </head>
 <body>
-    <h1>Customer information</h1>
+    <h1>Customer Information</h1>
 
     <div class="user-details">
-        <!-- Form for the user information -->
-        <form action="save.php" method="post">
+        <!-- Combined form for user information and file upload -->
+        <form action="process.php" method="post" enctype="multipart/form-data">
             <label for="firstName">Enter your first name:
                 <input id="firstName" type="text" name="firstName" placeholder="First Name" required />
             </label>
@@ -24,29 +23,21 @@
             <br />
 
             <label for="dateOfBirth">Enter Your Date of Birth:
-                <input type="text" name="dateOfBirth" id="dateOfBirth" />
+                <input type="text" name="dateOfBirth" id="dateOfBirth" required />
             </label>
             <br />
 
-            <div class="save">
-                <input type="submit" name="saveBtn" id="saveBtn" value="Save" />
-            </div>
-        </form>
-
-        <!-- Form for the excel document -->
-        <form class="fileForm" action="process.php" method="post" enctype="multipart/form-data">
-            <label for="excel-document">Upload excel document:
-                <input id="excel-document" type="file" name="file" />
+            <label for="excel-document">Upload Excel document:
+                <input id="excel-document" type="file" name="file" required />
             </label>
             <br />
 
             <input type="submit" name="submitBtn" id="submitBtn" value="Submit" />
         </form>
 
-       <form class="graph-button" action="graph.php">
-                <input type="submit" name="graphBtn" id="graphBtn" value="View graph">
-            </form> 
-       
+        <form class="graph-button" action="graph.php">
+            <input type="submit" name="graphBtn" id="graphBtn" value="View graph">
+        </form> 
     </div>
 </body>
 </html>

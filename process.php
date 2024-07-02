@@ -1,24 +1,45 @@
 <?php
-/** Handle the upload of the excel file, read it's contents and 
- * insert data into SQl database table called customer_finiance.
+/** Handles the information the user input into a form and the uploading of the excel file, read
+ *  it's contents and insert data into SQl database table called customer_finiance and customer_details.
  */
 
 
 //include a composer autolond which load the PhpSpreadsheet library and other dependencies
 require_once 'vendor/autoload.php';
-
-//connect to database
-$conn = mysqli_connect("localhost", "root", "", "work_flow_system");
-
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 
+/**connect to database
+ * checks if the database connection failed, and print error message if it failed
+ */
+$conn = mysqli_connect("localhost", "root", "", "work_flow_system");
+if(mysqli_connect_errno()){
+    echo "MySQL database connection failed: " . mysqli_connect_error();
+}
+
+
 /**check if the form with post method was submitted after clicking a submitBtn button
- * $file_mimes defines an of allowed MIME types for the uploaded file
+ * get values from the form fields(firstname, lastname and data of birth) from the post 
+ * request and store them in corresponding variables 
+ * Insert values from the form into customer_details table in the database
+ * $file_mimes defines an array of allowed MIME types for the uploaded file
  */
 if (isset($_POST['submitBtn'])) {
+    $first_name = $_POST["firstName"];
+    $last_name = $_POST["lastName"];
+    $date_of_birth = $_POST["dateOfBirth"];
+
+     $sql_customer = "INSERT INTO customer_details (first_name, last_name, date_of_birth) VALUES ('$first_name', '$last_name', '$date_of_birth')";
+    if (mysqli_query($conn, $sql_customer)) {
+        $customer_id = mysqli_insert_id($conn); // Get the last inserted customer ID
+    } else {
+        echo "Error: " . $sql_customer . "<br>" . mysqli_error($conn);
+        exit;
+    }
+
+
     $file_mimes = array(
         'text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 
         'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 
@@ -58,16 +79,19 @@ if (isset($_POST['submitBtn'])) {
                 $income = $sheetData[$i][1];
                 $expenses = $sheetData[$i][2];
 
-                $sql = "INSERT INTO customer_finance (month, income, expenses) VALUES ('$month', '$income', '$expenses')";
-
+                $sql_finance = "INSERT INTO customer_finance (customer_id, month, income, expenses) VALUES ('$customer_id', '$month', '$income', '$expenses')";
+               
                 //execute the sql statement, if successful print a success message, 
                 //if not print an error messsgae with the sql statment  and the error  description.
-                if (mysqli_query($conn, $sql)) {
-                    echo "Customer income and expenses uploaded successfully";
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                if (!mysqli_query($conn, $sql_finance)) {
+                    echo "Error: " . $sql_finance . "<br>" . mysqli_error($conn);
+                    exit;
                 }
             }
+            echo "<script>alert('Customer information and financial data uploaded successfully');</script>";
+        }
+        else{
+             echo "<script>alert('Invalid file format. Please upload an Excel file.');</script>";
         }
     }
 }
