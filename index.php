@@ -10,7 +10,7 @@
     <h1>Customer Information</h1>
 
     <div class="user-details">
-        <!-- Combined form for user information and file upload -->
+        <!--form for user information and file upload -->
         <form action="process.php" method="post" enctype="multipart/form-data">
             <label for="firstName">Enter your first name:
                 <input id="firstName" type="text" name="firstName" placeholder="First Name" required />

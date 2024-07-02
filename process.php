@@ -89,6 +89,7 @@ if (isset($_POST['submitBtn'])) {
                 }
             }
             echo "<script>alert('Customer information and financial data uploaded successfully');</script>";
+            header('Location: graph.php');
         }
         else{
              echo "<script>alert('Invalid file format. Please upload an Excel file.');</script>";
